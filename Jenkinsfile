@@ -1,31 +1,23 @@
 pipeline {
     agent any
+
     stages {
-        stage('Preparar Entorno') {
+        stage('Configuracion entorno') {
             steps {
-                echo 'Instalando dependencias...'
-                sh 'pip install -r requirements.txt' // Instala las dependencias desde el archivo
+                echo 'Paso 1 desde el repo'
             }
         }
-        stage('Ejecutar Tests') {
+        
+        stage('Compilacion') {
             steps {
-                echo 'Ejecutando tests automatizados...'
-                sh 'python -m unittest discover -s . -p "*_selenium.py"' // Descubre y ejecuta los tests
+                echo 'Hello 2'
             }
         }
-    }
-    post {
-        always {
-            echo 'Pipeline finalizado.'
-        }
-        success {
-            echo 'Todos los tests pasaron correctamente.'
-        }
-        failure {
-            echo 'La ejecución del pipeline falló. Enviando correo electrónico...'
-            mail to: 'andres2078@gmail.com',
-                 subject: 'Fallo en la ejecución de Jenkins Pipeline',
-                 body: 'El pipeline de Jenkins ha fallado en la rama develop. Revisa los logs para más detalles.'
+        
+        stage('Test') {
+            steps {
+                echo 'Hello 3'
+            }
         }
     }
 }
