@@ -33,7 +33,7 @@ pipeline {
                 // Notificar el fallo al commit en GitHub
                 githubCommitStatus context: 'CI', state: 'failure', description: 'Tests failed'
             }
-            echo 'La ejecución del pipeline falló. Enviando correo electrónico...'
+            echo 'La ejecución del pipeline falló. Enviando correo electrónico....'
             mail to: 'andres2078@gmail.com',
                  subject: 'Fallo en la ejecución de Jenkins Pipeline',
                  body: 'El pipeline de Jenkins ha fallado en la rama develop. Revisa los logs para más detalles.'
