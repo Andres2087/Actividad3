@@ -4,7 +4,7 @@ pipeline {
         stage('Preparar Entorno') {
             steps {
                 echo 'Instalando dependencias...'
-                
+                bat 'C:\\Users\\andre\\python3.13\\python.exe -m pip install -r requirements.txt'
             }
         }
         
