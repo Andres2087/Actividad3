@@ -1,8 +1,6 @@
 pipeline {
     agent any
-    stages {
-        
-    }
+    
     post {
         always {
             echo 'Pipeline finalizado.'
