@@ -22,9 +22,17 @@ pipeline {
             echo 'Pipeline finalizado.'
         }
         success {
+            script {
+                // Notifica a GitHub que el pipeline fue exitoso
+                githubNotify context: 'Jenkins', status: 'SUCCESS', description: 'Todos los tests pasaron correctamente.'
+            }
             echo 'Todos los tests pasaron correctamente.'
         }
         failure {
+            script {
+                // Notifica a GitHub que el pipeline falló
+                githubNotify context: 'Jenkins', status: 'FAILURE', description: 'La ejecución del pipeline falló.'
+            }
             echo 'La ejecución del pipeline falló. Enviando correo electrónico...'
             mail to: 'andres2078@gmail.com',
                  subject: 'Fallo en la ejecución de Jenkins Pipeline',
