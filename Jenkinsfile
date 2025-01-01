@@ -33,7 +33,7 @@ pipeline {
                 // Notifica a GitHub que el pipeline falló
                 githubNotify context: 'Jenkins', status: 'FAILURE', description: 'La ejecución del pipeline falló.'
             }
-            echo 'La ejecución del pipeline falló. Enviando correo electrónico..'
+            echo 'La ejecución del pipeline falló. Enviando correo electrónico...'
             mail to: 'andres2078@gmail.com',
                  subject: 'Fallo en la ejecución de Jenkins Pipeline',
                  body: 'El pipeline de Jenkins ha fallado en la rama develop. Revisa los logs para más detalles.'
