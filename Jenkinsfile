@@ -22,23 +22,9 @@ pipeline {
             echo 'Pipeline finalizado.'
         }
         success {
-            script {
-                publishChecks(
-                    context: 'CI',
-                    description: 'Tests passed',
-                    state: 'success'
-                )
-            }
             echo 'Todos los tests pasaron correctamente.'
         }
         failure {
-            script {
-                publishChecks(
-                    context: 'CI',
-                    description: 'Tests failed',
-                    state: 'failure'
-                )
-            }
             echo 'La ejecución del pipeline falló. Enviando correo electrónico...'
             mail to: 'andres2078@gmail.com',
                 subject: 'Fallo en la ejecución de Jenkins Pipeline',
