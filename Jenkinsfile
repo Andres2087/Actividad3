@@ -2,7 +2,10 @@ pipeline {
     agent any
     stages {
         stage('Preparar Entorno') {
-            echo 'hola'
+            steps {
+                echo 'Instalando dependencias...'
+                
+            }
         }
         
     }
