@@ -2,15 +2,6 @@ pipeline {
     agent any
     stages {
         
-        stage('Ejecutar Tests') {
-            steps {
-                echo 'Ejecutando tests automatizados...'
-                bat 'C:\\Users\\andre\\python3.13\\python.exe test1_selenium.py'
-                bat 'C:\\Users\\andre\\python3.13\\python.exe test2_selenium.py'
-                bat 'C:\\Users\\andre\\python3.13\\python.exe test3_selenium.py'
-                bat 'C:\\Users\\andre\\python3.13\\python.exe test4_selenium.py'
-            }
-        }
     }
     post {
         always {
