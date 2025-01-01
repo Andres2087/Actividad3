@@ -1,7 +1,10 @@
 pipeline {
     agent any
     stages {
-        echo "hola"
+        stage('Preparar Entorno') {
+            echo 'hola'
+        }
+        
     }
     post {
         always {
