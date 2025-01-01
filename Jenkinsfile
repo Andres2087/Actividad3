@@ -4,13 +4,13 @@ pipeline {
         stage('Preparar Entorno') {
             steps {
                 echo 'Instalando dependencias...'
-                sh 'pip install -r requirements.txt' // Instala las dependencias desde el archivo
+                bat 'pip install -r requirements.txt' // Cambiar sh a bat
             }
         }
         stage('Ejecutar Tests') {
             steps {
                 echo 'Ejecutando tests automatizados...'
-                sh 'python -m unittest discover -s . -p "*_selenium.py"' // Descubre y ejecuta los tests
+                bat 'python -m unittest discover -s . -p "*_selenium.py"' // Cambiar sh a bat
             }
         }
     }
