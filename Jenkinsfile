@@ -15,20 +15,7 @@ pipeline {
                 bat 'C:\\Users\\andre\\python3.13\\python.exe test3_selenium.py'
                 bat 'C:\\Users\\andre\\python3.13\\python.exe test4_selenium.py'
             }
-        }
-        stage('Notificar a GitHub') {
-            steps {
-                script {
-                    def status = currentBuild.result == 'SUCCESS' ? 'success' : 'failure'
-                    githubPRStatus(
-                        context: 'ci/selenium-tests',
-                        state: status,
-                        description: "Automated Selenium tests",
-                        targetUrl: "https://eb1d-186-119-217-255.ngrok-free.app/job/EjemplosMuestra/job/Desarrollo/job/job-actividad3/"
-                    )
-                }
-            }
-        }
+        }   
     }
     post {
         always {
