@@ -23,7 +23,7 @@ pipeline {
             steps {
                 script {
                     def status = currentBuild.result == 'SUCCESS' ? 'success' : 'failure'
-                    setGitHubCommitStatus(
+                    githubCommitStatus(
                         context: 'ci/selenium-tests',
                         state: status,
                         targetUrl: "https://eb1d-186-119-217-255.ngrok-free.app/job/EjemplosMuestra/job/Desarrollo/job/job-actividad3/",
