@@ -24,7 +24,7 @@ pipeline {
                         context: 'ci/selenium-tests',
                         state: status,
                         description: "Automated Selenium tests",
-                        targetUrl: "https://jenkins.example.com/job/${JOB_NAME}/${BUILD_NUMBER}"
+                        targetUrl: "https://eb1d-186-119-217-255.ngrok-free.app/job/EjemplosMuestra/job/Desarrollo/job/job-actividad3/"
                     )
                 }
             }
