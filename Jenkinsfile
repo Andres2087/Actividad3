@@ -1,8 +1,7 @@
 pipeline {
     agent any
     triggers {
-        // Solo se ejecutará en la rama 'develop'
-        gitHubPush() // Este trigger requiere un webhook en GitHub
+        githubPush() // Este trigger requiere un webhook en GitHub
     }
     stages {
         stage('Preparar Entorno') {
@@ -24,11 +23,10 @@ pipeline {
             steps {
                 script {
                     def status = currentBuild.result == 'SUCCESS' ? 'success' : 'failure'
-                    // Usar 'setGitHubCommitStatus' o 'gitHubPRStatus' dependiendo de la configuración
                     setGitHubCommitStatus(
                         context: 'ci/selenium-tests',
                         state: status,
-                        targetUrl: "https://eb1d-186-119-217-255.ngrok-free.app/job/EjemplosMuestra/job/Desarrollo/job/job-actividad3/",
+                        targetUrl: "https://jenkins.example.com/job/${JOB_NAME}/${BUILD_NUMBER}",
                         description: "Automated Selenium tests"
                     )
                 }
