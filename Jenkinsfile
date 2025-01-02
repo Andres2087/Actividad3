@@ -1,5 +1,9 @@
 pipeline {
     agent any
+    triggers {
+        // Solo se ejecutará en la rama 'develop'
+        gitHubPush() // Este trigger requiere un webhook en GitHub
+    }
     stages {
         stage('Preparar Entorno') {
             steps {
@@ -20,10 +24,11 @@ pipeline {
             steps {
                 script {
                     def status = currentBuild.result == 'SUCCESS' ? 'success' : 'failure'
-                    githubCommitStatus(
+                    // Usar 'setGitHubCommitStatus' o 'gitHubPRStatus' dependiendo de la configuración
+                    setGitHubCommitStatus(
                         context: 'ci/selenium-tests',
                         state: status,
-                        targetUrl: "https://eb1d-186-119-217-255.ngrok-free.app/job/EjemplosMuestra/job/Desarrollo/job/job-actividad3/",
+                        targetUrl: "https://eb1d-186-119-217-255.ngrok-free.app/job/EjemplosMuestra/job/Desarrollo/job/job-actividad3//${BUILD_NUMBER}",
                         description: "Automated Selenium tests"
                     )
                 }
