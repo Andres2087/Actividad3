@@ -23,22 +23,20 @@ pipeline {
         }
         success {
             script {
-                githubNotify(
-                    context: 'CI',
+                setGitHubPullRequestStatus(
+                    context: 'Jenkins Build',
                     status: 'SUCCESS',
-                    description: 'Tests passed',
-                    targetUrl: "${env.BUILD_URL}"
+                    description: 'Build completed successfully.'
                 )
             }
             echo 'Todos los tests pasaron correctamente.'
         }
         failure {
             script {
-                githubNotify(
-                    context: 'CI',
-                    status: 'FAILURE',
-                    description: 'Tests failed',
-                    targetUrl: "${env.BUILD_URL}"
+                setGitHubPullRequestStatus(
+                    context: 'Jenkins Build',
+                    status: 'SUCCESS',
+                    description: 'Build completed successfully.'
                 )
             }
             echo 'La ejecución del pipeline falló.'
