@@ -1,8 +1,5 @@
 pipeline {
     agent any
-    triggers {
-        githubPush() // Este trigger requiere un webhook en GitHub
-    }
     stages {
         stage('Preparar Entorno') {
             steps {
