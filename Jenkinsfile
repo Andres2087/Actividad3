@@ -23,11 +23,10 @@ pipeline {
         }
         success {
             script {
-                // Notificar éxito en GitHub
-                setGitHubPullRequestStatus(
+                githubNotify(
                     context: 'CI',
-                    description: 'Todos los tests pasaron correctamente.',
-                    state: 'SUCCESS',
+                    status: 'SUCCESS',
+                    description: 'Tests passed',
                     targetUrl: "${env.BUILD_URL}"
                 )
             }
@@ -35,18 +34,19 @@ pipeline {
         }
         failure {
             script {
-                // Notificar fallo en GitHub
-                setGitHubPullRequestStatus(
+                githubNotify(
                     context: 'CI',
-                    description: 'La ejecución del pipeline falló.',
-                    state: 'FAILURE',
+                    status: 'FAILURE',
+                    description: 'Tests failed',
                     targetUrl: "${env.BUILD_URL}"
                 )
             }
-            echo 'La ejecución del pipeline falló. Enviando correo electrónico...'
+            echo 'La ejecución del pipeline falló.'
             mail to: 'andres2078@gmail.com',
                  subject: 'Fallo en la ejecución de Jenkins Pipeline',
-                 body: 'El pipeline de Jenkins ha fallado en la rama develop. Revisa los logs para más detalles: ${env.BUILD_URL}'
+                 body: """El pipeline de Jenkins ha fallado en la rama develop.
+                          Revisa los logs para más detalles:
+                          ${env.BUILD_URL}"""
         }
     }
 }
