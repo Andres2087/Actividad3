@@ -1,5 +1,5 @@
 pipeline {
-    agent any  # Este campo especifica que puede ejecutarse en cualquier agente disponible.
+    agent any  
 
     stages {
         stage('Preparar Entorno') {
