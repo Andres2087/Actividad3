@@ -12,7 +12,7 @@ class AnimeFLVTest(unittest.TestCase):
         browser.maximize_window()
         browser.get("https://www3.animeflv.net/")  
 
-        contenedor = browser.find_element(By.ID, "mCSB_1")
+        contenedor = browser.find_element(By.ID, "mCSB_12")
         animes_list = contenedor.find_elements(By.TAG_NAME, "a")  
 
         res = []
