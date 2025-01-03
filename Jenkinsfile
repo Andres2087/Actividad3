@@ -14,6 +14,7 @@ pipeline {
                 bat 'C:\\Users\\andre\\python3.13\\python.exe test2_selenium.py'
                 bat 'C:\\Users\\andre\\python3.13\\python.exe test3_selenium.py'
                 bat 'C:\\Users\\andre\\python3.13\\python.exe test4_selenium.py'
+                bat 'C:\\Users\\andre\\python3.13\\python.exe test5_selenium.py'
             }
         }   
     }
