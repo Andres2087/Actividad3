@@ -20,6 +20,10 @@ class AnimeFLVTest(unittest.TestCase):
         results = browser.find_elements(By.CSS_SELECTOR, ".ListAnimes.AX.Rows.A03.C02.D02")  
         self.assertGreater(len(results), 0, "No se encontraron resultados para 'Naruto'.")
 
+        print("\nResultados de búsqueda:")
+        for result in results:
+            print(result.text)
+
     def tearDown(self):
         self.browser.quit()
 
