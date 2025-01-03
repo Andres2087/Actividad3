@@ -12,7 +12,7 @@ class AnimeFLVTest(unittest.TestCase):
         browser = self.browser
         browser.maximize_window()
         browser.get("https://www3.animeflv.net/")  
-        search = browser.find_element(By.ID, "search-anim")
+        search = browser.find_element(By.ID, "search-anime")
         search.clear()
         search.send_keys("Naruto")
         search.submit()
